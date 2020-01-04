@@ -1,0 +1,8 @@
+.main{
+    display: flex;
+    margin-top: $size-lg;
+    margin-bottom: $size-lg *2;
+    flex-wrap: wrap;
+    // align-items: stretch;
+    justify-content: space-evenly;
+}

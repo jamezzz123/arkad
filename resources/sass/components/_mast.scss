@@ -1,0 +1,23 @@
+.mast{
+    margin: 0 auto;
+    text-align: center;
+    color: #ffffff;
+    background-color: $darkest;
+    padding-bottom: 15px;
+    &__title{
+        font-size: 5em;
+        font-weight: bold;
+        padding:$size-lg $size-sm;
+        display: block;
+        letter-spacing: 0.20em;
+    }
+    &__text{
+        padding:$size-md $size-sm;
+    }
+    &__buttons {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+}

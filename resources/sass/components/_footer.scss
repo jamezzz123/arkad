@@ -1,0 +1,26 @@
+.footer{
+    background-color: $darker;
+
+    &__title{
+        text-transform: uppercase;
+        text-align: center;
+        span{
+            color: white;
+            text-decoration: underline;
+        }
+    }
+
+
+    &__narvigation{
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        &__item{
+             font-weight: bold;
+             padding:$size-sm;
+             color: #ffffff;
+             font-weight: 300;
+            
+        }
+    }
+}
