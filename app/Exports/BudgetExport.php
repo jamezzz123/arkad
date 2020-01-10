@@ -26,11 +26,11 @@ class BudgetExport implements FromCollection,WithHeadings,ShouldAutoSize, WithEv
         
     }
 
-     public function view(): View
-    {
-        $items =request();
-        return view('exports.excelexport', compact('items'));
-    }
+    //  public function view(): View
+    // {
+    //     $items =request();
+    //     return view('exports.excelexport', compact('items'));
+    // }
 
     public function headings():array{
 
