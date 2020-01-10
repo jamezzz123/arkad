@@ -12,7 +12,7 @@
 |
 */
 
-Route::get('/export', function () {
+Route::get('/', function () {
     return view('index');
 });
 
