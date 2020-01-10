@@ -45,15 +45,23 @@ import {mapActions,mapState} from 'vuex';
             set(){
                 this.setIncome(this.incomeVal);
 
-             
+              const payload2 = {
+                    item: "Transportation",
+                    amount: (5 * this.incomeVal) / 100,
+                    percentage: '5%',
+                };
+
+                this.setSavings(payload2);
                 
                 const payload = {
                     item: "SAVINGS(10% OF YOUR INCOME)",
                     amount: (10 * this.incomeVal) / 100,
                     percentage: '10%',
-                }
+                };
 
                 this.setSavings(payload);
+
+
 
                 this.toggleView = !this.toggleView;   
                 toastr["success"]("Income Set Successfully");

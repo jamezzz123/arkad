@@ -3,11 +3,11 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-import items from './data/data.js'
+// import items from './data/data.js'
 export default new Vuex.Store({
 
  state:{
-   items, 
+   items :[], 
    income:1000
  },
 mutations:{

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +12,9 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/export', function () {
     return view('index');
 });
+
+
+Route::post('/export','ExportController@index');

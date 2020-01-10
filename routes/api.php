@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Exports\BudgetExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::middleware('auth:api')->group(function(){
+
+    
+
+});
+Route::get('/export', function () {
+         Excel::download(new BudgetExport,'Export.xlsx');
+
+         
+    });

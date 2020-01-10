@@ -12,7 +12,7 @@
             <h1 class="mast__title container">Arkad</h1>
             <p  class="mast__text container">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consectetur maxime iste ab esse, reiciendis iusto laboriosam? Amet minima numquam cum voluptatibus. Distinctio, fugit placeat beatae facilis animi natus maiores.</p>
             <div class="mast__buttons">
-                <button class="button margin-sm">Export to EXL</button> 
+                <button class="button margin-sm" @click="excelExport">Export to EXL</button> 
                 <button class="button button--pdf margin-sm">Export to PDF</button>
             </div>
             
@@ -22,9 +22,52 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
+
+        data() {
+            return {
+                
+            }
+        },
+
+        computed: {
+            ...mapState([
+                'items'
+            ])
+        },
+
+        methods: {
+            excelExport(){
+
+               axios({
+                    url: './export',
+                    method: 'POST',
+                    responseType: 'blob',
+                     data: {
+                        data: this.items,
+                    }
+                }).then((response) => {
+                     var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+                     var fileLink = document.createElement('a');
+   
+                     fileLink.href = fileURL;
+                     fileLink.setAttribute('download', 'file.xlsx');
+                     document.body.appendChild(fileLink);
+   
+                     fileLink.click();
+                     
+                });
+
+            }
+        
+        },
+
+
+      
+
+
+
+
     }
 </script>

@@ -1876,6 +1876,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])(['setIncome', 'setSavings', 'reset']), {
     set: function set() {
       this.setIncome(this.incomeVal);
+      var payload2 = {
+        item: "Transportation",
+        amount: 5 * this.incomeVal / 100,
+        percentage: '5%'
+      };
+      this.setSavings(payload2);
       var payload = {
         item: "SAVINGS(10% OF YOUR INCOME)",
         amount: 10 * this.incomeVal / 100,
@@ -1936,6 +1942,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1959,9 +1972,30 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {};
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['items'])),
+  methods: {
+    excelExport: function excelExport() {
+      axios({
+        url: './export',
+        method: 'POST',
+        responseType: 'blob',
+        data: {
+          data: this.items
+        }
+      }).then(function (response) {
+        var fileURL = window.URL.createObjectURL(new Blob([response.data]));
+        var fileLink = document.createElement('a');
+        fileLink.href = fileURL;
+        fileLink.setAttribute('download', 'file.xlsx');
+        document.body.appendChild(fileLink);
+        fileLink.click();
+      });
+    }
   }
 });
 
@@ -38808,46 +38842,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c("header", { staticClass: "header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "mast" }, [
+        _c("h1", { staticClass: "mast__title container" }, [_vm._v("Arkad")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "mast__text container" }, [
+          _vm._v(
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consectetur maxime iste ab esse, reiciendis iusto laboriosam? Amet minima numquam cum voluptatibus. Distinctio, fugit placeat beatae facilis animi natus maiores."
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mast__buttons" }, [
+          _c(
+            "button",
+            { staticClass: "button margin-sm", on: { click: _vm.excelExport } },
+            [_vm._v("Export to EXL")]
+          ),
+          _vm._v(" "),
+          _c("button", { staticClass: "button button--pdf margin-sm" }, [
+            _vm._v("Export to PDF")
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("header", { staticClass: "header" }, [
-        _c("nav", [
-          _c("ul", { staticClass: "navigation" }, [
-            _c("li", { staticClass: "navigation__link active" }, [
-              _c("a", { attrs: { href: "/index.html" } }, [_vm._v("HOME")])
-            ]),
-            _vm._v(" "),
-            _c("li", { staticClass: "navigation__link " }, [_vm._v("SAVINGS")]),
-            _vm._v(" "),
-            _c("li", { staticClass: "navigation__link" }, [_vm._v("BUDGET")])
-          ])
+    return _c("nav", [
+      _c("ul", { staticClass: "navigation" }, [
+        _c("li", { staticClass: "navigation__link active" }, [
+          _c("a", { attrs: { href: "/index.html" } }, [_vm._v("HOME")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "mast" }, [
-          _c("h1", { staticClass: "mast__title container" }, [_vm._v("Arkad")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "mast__text container" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consectetur maxime iste ab esse, reiciendis iusto laboriosam? Amet minima numquam cum voluptatibus. Distinctio, fugit placeat beatae facilis animi natus maiores."
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mast__buttons" }, [
-            _c("button", { staticClass: "button margin-sm" }, [
-              _vm._v("Export to EXL")
-            ]),
-            _vm._v(" "),
-            _c("button", { staticClass: "button button--pdf margin-sm" }, [
-              _vm._v("Export to PDF")
-            ])
-          ])
-        ])
+        _c("li", { staticClass: "navigation__link " }, [_vm._v("SAVINGS")]),
+        _vm._v(" "),
+        _c("li", { staticClass: "navigation__link" }, [_vm._v("BUDGET")])
       ])
     ])
   }
