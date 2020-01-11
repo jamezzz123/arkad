@@ -38844,15 +38844,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", {}, [
     _c("header", { staticClass: "header" }, [
-      _vm._m(0),
-      _vm._v(" "),
       _c("div", { staticClass: "mast" }, [
-        _c("h1", { staticClass: "mast__title container" }, [_vm._v("Arkad")]),
+        _c("h1", { staticClass: "mast__title container" }, [_vm._v("ARKAD")]),
         _vm._v(" "),
-        _c("p", { staticClass: "mast__text container" }, [
-          _vm._v(
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim consectetur maxime iste ab esse, reiciendis iusto laboriosam? Amet minima numquam cum voluptatibus. Distinctio, fugit placeat beatae facilis animi natus maiores."
-          )
+        _c("h3", { staticClass: "mast__text container" }, [
+          _vm._v("SIMPLE BUDGETING APP")
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "mast__buttons" }, [
@@ -38860,34 +38856,13 @@ var render = function() {
             "button",
             { staticClass: "button margin-sm", on: { click: _vm.excelExport } },
             [_vm._v("Export to EXL")]
-          ),
-          _vm._v(" "),
-          _c("button", { staticClass: "button button--pdf margin-sm" }, [
-            _vm._v("Export to PDF")
-          ])
+          )
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("nav", [
-      _c("ul", { staticClass: "navigation" }, [
-        _c("li", { staticClass: "navigation__link active" }, [
-          _c("a", { attrs: { href: "/index.html" } }, [_vm._v("HOME")])
-        ]),
-        _vm._v(" "),
-        _c("li", { staticClass: "navigation__link " }, [_vm._v("SAVINGS")]),
-        _vm._v(" "),
-        _c("li", { staticClass: "navigation__link" }, [_vm._v("BUDGET")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -52803,31 +52778,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/data/data.js":
-/*!***********************************!*\
-  !*** ./resources/js/data/data.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ([{
-  item: 'jesus',
-  amount: 2000,
-  percentage: '100%'
-}, {
-  item: 'mary',
-  amount: 2000,
-  percentage: '100%'
-}, {
-  item: 'solomon',
-  amount: 2000,
-  percentage: '100%'
-}]);
-
-/***/ }),
-
 /***/ "./resources/js/store.js":
 /*!*******************************!*\
   !*** ./resources/js/store.js ***!
@@ -52840,14 +52790,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _data_data_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data/data.js */ "./resources/js/data/data.js");
 
 
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]); // import items from './data/data.js'
 
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    items: _data_data_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+    items: [],
     income: 1000
   },
   mutations: {

@@ -134,8 +134,8 @@ input {
 .main {
   display: -webkit-box;
   display: flex;
-  margin-top: 45px;
-  margin-bottom: 90px;
+  margin-top: 90px;
+  margin-bottom: 180px;
   flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
           justify-content: space-evenly;
@@ -229,6 +229,14 @@ input {
 
 .margin-sm {
   margin: 15px;
+}
+
+.margin-lg {
+  margin: 45px;
+}
+
+.margin-xlg {
+  margin: 90px;
 }
 
 .footer {
