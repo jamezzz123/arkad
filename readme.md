@@ -1,4 +1,4 @@
-###ARKAD
+ARKAD
 
 ##Simple Budgeting App
 
